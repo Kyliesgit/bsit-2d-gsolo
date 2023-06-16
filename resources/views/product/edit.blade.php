@@ -1,0 +1,49 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+                @endif
+                <div class="card-header">Product ID: {{$product->id}}</div>
+                <div class="card-body">
+                    <form action="/product/update/{{ $product->id }}">
+                        <div class="col-12 pb-2">
+                            <label for="inputName" class="form-label">Product Name:</label>
+                            <textarea name="name" type="name" class="form-control" id="inputName" rows="1">{{$product->name}}</textarea>
+                        </div>
+                        <div class="col-12 pb-2">
+                            <label for="inputDescription" class="form-label">Description:</label>
+                            <textarea name="description" type="description" class="form-control" id="inputDescription" rows="5">{{$product->description}}</textarea>
+                        </div>
+                        <div class="col-12 pb-2">
+                            <label for="inputCategory" class="form-label">Category:</label>
+                            <textarea name="category" type="category" class="form-control" id="inputCategory" rows="5">{{$product->category}}</textarea>
+                        </div>
+                        <div class="col-12 pb-2">
+                            <label for="inputBranch" class="form-label">Branch:</label>
+                            <input name="branch" type="branch" class="form-control" id="inputBranch" value={{$product->branch}}>
+                        </div>
+                        <div class="col-6 pb-2">
+                            <label for="inputPrice" class="form-label">Price (PHP):</label>
+                            <input name="price" type="price" class="form-control" id="inputPrice" value={{$product->price}} >
+                        </div>
+                        <div class="col-6 pb-4">
+                            <label for="inputUnit" class="form-label">Unit:</label>
+                            <input name="unit" type="unit" class="form-control" id="inputUnit" value={{$product->unit}}>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
