@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="/products">Products</a>
                 </div>
             </div>
         </div>
